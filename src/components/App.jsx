@@ -29,12 +29,9 @@ function App() {
     }
   };
 
-  function countTotalFeedback() {
-    return good + neutral + bad;
-  }
+  const totalFeedback = good + neutral + bad;
 
   function countPositiveFeedbackPercentage() {
-    const totalFeedback = countTotalFeedback();
     return Math.round((good / totalFeedback) * 100);
   }
 
@@ -45,12 +42,12 @@ function App() {
       </Section>
 
       <Section title="Statistics">
-        {countTotalFeedback() > 0 ? (
+        {totalFeedback > 0 ? (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
+            total={totalFeedback}
             positivePercentage={countPositiveFeedbackPercentage()}
           />
         ) : (
